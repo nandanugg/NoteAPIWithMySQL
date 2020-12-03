@@ -119,21 +119,34 @@ const name;
 ```
 
 _"create a let variable called age"_
+_or_
+_"create a age let variable"_
 ```javascript
 let name;
 ```
 
 _"create a name variable with value of budi"_
+_or_
+_"create a name with value of budi"_
 ```javascript
 const name = "budi";
 ```
 
 _"create a name variable with value of an object"_
+_or_
+_"create a name object"_
 ```javascript
 const name = {};
 ```
 
-_"create a name variable with value of an object,_
+_"create a day variable with value of an array"_
+_or_
+_"create a day array"_
+```javascript
+const name = [];
+```
+
+_"create a name object,_
 _then fill the object with name and age properties with empty string value"_
 ```javascript
 const name = {
@@ -147,7 +160,7 @@ const name = {
 ### Function
 
 _"create a function called chainSet_
-_with id and name parameters"_
+_with id and name parameter"_
 
 ```javascript
 function chainSet(id, name){
@@ -172,7 +185,7 @@ function chainSet(id, userId){
 ```
 
 _"Create bind function that has a name parameter_
-_and create user variable with value of object,_
+_inside it, create user object_
 _then add name property and fill it with function parameter_
 ```javascript
 function bind(name){
@@ -183,6 +196,16 @@ function bind(name){
 ```
 
 _"In bind function, return the user variable"_
+
+Before
+```javascript
+function bind(name){
+  const user = {
+    name: name
+  }
+}
+```
+After
 ```javascript
 function bind(name){
   const user = {
@@ -216,21 +239,18 @@ const name  = (req, res) =>{
 ## Task
 ### Task 1
 1. Create a name variable with value of charlie
-2. Create a days variable with value of an array, fill it with day names from monday to sunday
-3. Create a init function
-   1. Insite init function
-      1. create a user object with name and age property, fill it with your name and age respectively
+2. Create a days array, fill it with day names from monday to sunday
+3. Create a init function, inside it
+   1. create a user object with name and age property, fill it with your name and age respectively
 
 ### Task 2
-1. Create add function with id & name parameter
-   1. inside add function
-      1. Create a result variable with value of an object
-         1. the object have id property with id from function parameter as value
-         2. the object also have name property with name from function parameter as value
-      2. Return the result variable
-2. Create addItem function with id & item as parameter
-   1. in the remove function
-      1. create a result variable with value of an object
-         1. the object have id property with id from function parameter as value
-         2. the object also have item property with item from function parameter as value
-      2. Return the result variable
+1. Create add function with id & name parameter, inside it
+   1. Create a result object with
+      1. id property with value of id from function parameter as value, and
+      2. a name property with value of name from function parameter as value
+   2. Return the result variable
+2. Create addItem function with id & item as parameter, inside it
+   1. create a result object with
+      1. id property with value of id from function parameter as value
+      2. and a item property with value of item from function parameter as value
+   2. Return the result variable
