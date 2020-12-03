@@ -1,9 +1,12 @@
 const express = require('express')
-const note = require('../../db')
+// 👇 import exported variable at notesDb.js
+const notes = require('../../databases/notesDb')
 const app = express()
 
+// 👇 handle GET request method at /note
 app.get('/note', (req, res) => {
-  res.send(note)
+  // 👇 send the notes array variable
+  res.send(notes)
 })
 
 module.exports = app

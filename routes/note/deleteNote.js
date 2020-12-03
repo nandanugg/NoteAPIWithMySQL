@@ -1,9 +1,13 @@
 const express = require('express')
-const note = require('../../db')
+const notes = require('../../databases/db')
 const app = express()
 
+// 👇 handle DELETE request method at /note
 app.delete('/note', (req, res) => {
-  note = note.fitler((n) => n.id !== req.body.id)
+  const id = req.body.id
+  // 👇 change the notes value to be an array that already filtered from the id that was inserted at request
+  notes = notes.filter((note) => note.id !== id)
+  // 👇 send "Ok" to the user
   res.send('Ok')
 })
 
