@@ -8,7 +8,7 @@ const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
 // Create a init function
 //-- Insite init function---
 // create a user object with name and age property, fill it with your name and age respectively
-function init(name, age) {
+function init() {
   const user = {
     name: "Irwan",
     age: 23
