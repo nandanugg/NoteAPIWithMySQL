@@ -54,9 +54,9 @@ _"create an array with today date and the next 3 days"_
 
 _"change the second item of that array to 2"_
 
-before `["23, 24, 25, 26"]`
+before `[23, 24, 25, 26]`
 
-after `["23, 2, 25, 26"]`
+after `[23, 2, 25, 26]`
 
 ----------
 
