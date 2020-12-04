@@ -5,8 +5,16 @@ const app = express()
 // 👇 handle DELETE request method at /note
 app.delete('/note/:id', (req, res) => {
   const id = req.params.id
-  // 👇 change the notes value to be an array that already filtered from the id that was inserted at request
-  notes = notes.filter((note) => note.id !== id)
+  // 👇 filter the notes that have an id same as id inserted at request
+  const updatedNotes = notes.filter((note) => note.id !== id)
+  // 👇 clear out notes item one by one with forEach loop
+  notes.forEach(() => {
+    notes.splice(0)
+  });
+  // 👇 for filtered notes, push each filtered notes to notes array
+  updatedNotes.forEach((updatdNote) => {
+    notes.push(updatdNote)
+  })
   // 👇 send "Ok" to the user
   res.send('Ok')
 })
