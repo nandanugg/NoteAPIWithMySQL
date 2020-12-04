@@ -30,15 +30,19 @@ app.use(express.json())
 
 // 👇 import routes
 const rootRoute = require('./routes/rootRoute')
-const addNote = require('./routes/addNote')
-const getNote = require('./routes/getNote')
-const editNote = require('./routes/editNote')
-const deleteNote = require('./routes/deleteNote')
+const addNote = require('./routes/note/addNote')
+const getNote = require('./routes/note/getNote')
+const getParamNote = require('./routes/note/getParamNote')
+const getQueryNote = require('./routes/note/getQueryNote')
+const editNote = require('./routes/note/editNote')
+const deleteNote = require('./routes/note/deleteNote')
 
 // 👇 use app "use" method to use imported routes as application routes
 app.use(rootRoute)
 app.use(addNote)
 app.use(getNote)
+app.use(getParamNote)
+app.use(getQueryNote)
 app.use(editNote)
 app.use(deleteNote)
 

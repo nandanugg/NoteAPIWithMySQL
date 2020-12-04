@@ -14,5 +14,5 @@ app.get('/', (req, res) => {
   res.send('Welcome to Note API')
 })
 
-// 👇 export app as module so it can be imported to another
+// 👇 export app as module so it can be imported to another file
 module.exports = app

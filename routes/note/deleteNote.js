@@ -1,5 +1,5 @@
 const express = require('express')
-const notes = require('../../databases/db')
+const notes = require('../../databases/notesDb')
 const app = express()
 
 // 👇 handle DELETE request method at /note
