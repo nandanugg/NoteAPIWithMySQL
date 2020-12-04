@@ -5,11 +5,19 @@
  * 👇 initialize nodejs project to this folder
  * npm init
  * 👇 install express module for building API
- * install express
+ * npm install express
  * 👇 after installing, there will be a folder called 
  * "node_modules" we must prevent that folder to be 
  * commited in git otherwise, git will eat so drive space
  * by creating a file called ".gitignore" @see .gitignore
+ * 
+ * If someone clone this repository, they will not get the
+ * node_modules folder, to make that folder appear in their
+ * project, we can tell them to run a command called
+ * "npm install" or in short is "npm i"
+ * 👆 it's a command to install all modules that have
+ * been installed in this project, so they don't need
+ * to type "npm install express" anymore
  */
 
 // 👇 require / import express module as variable
