@@ -1,7 +1,7 @@
 # Task
-1. Create a folder called "user" in routes folder
-2. Create a file called usersDb.js with the content as same as notesDb.js, with location beside notesDb.js
-3. Create a CRUD user by using usersDb.js as database
+1. Create a folder called `user` in routes folder
+2. Create a file called `usersDb.js` with the content as same as notesDb.js, with location beside notesDb.js
+3. Create a CRUD user by using `usersDb.js` as database
 
 ## Extra
 1. Do a research about how `array.filter()` method works in a file called `arrayFilter.md`
