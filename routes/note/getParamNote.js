@@ -4,7 +4,9 @@ const app = express()
 
 app.get('/note/param/:id', (req, res) => {
   const id = req.params.id
-  const foundNote = notes.filter((note) => note.id === id)
+  const user = req.user
+  const noteByUser = notes.filter(note => note.username === user.username)
+  const foundNote = noteByUser.filter((note) => note.id === id)
   res.send(foundNote)
 })
 
