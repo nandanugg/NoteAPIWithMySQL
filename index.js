@@ -1,3 +1,4 @@
+// Use dotenv module to use .env file as environment variable
 require('dotenv').config()
 const express = require('express')
 const app = express()
