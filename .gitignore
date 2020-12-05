@@ -1,0 +1,3 @@
+node_modules
+# 👇 prevent .env file to be commited to git!, it contains sensitive information about developers environment!
+.env
