@@ -16,6 +16,10 @@ function parseJwt(token) {
   }
 }
 
+<<<<<<< HEAD
+=======
+// 👇 exports two function inside this file using "Object Property Value Shorthand", so any file that requires this file will recieves an object with two methods
+>>>>>>> Add explanation in jwt helper
 module.exports = {
   signJwt,
   parseJwt
