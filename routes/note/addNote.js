@@ -4,7 +4,6 @@ const authorize = require('../../middlewares/authorizationMiddleware')
 const { nanoid } = require('nanoid')
 const app = express()
 
-// 👇 use the authorize middleware in this route
 app.use(authorize)
 
 app.post('/note', (req, res) => {
