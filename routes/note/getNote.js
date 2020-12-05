@@ -7,8 +7,8 @@ app.use(authorize)
 
 app.get('/note', (req, res) => {
   const user = req.user
-  const noteByUser = notes.filter(note => note.username === user.username)
-  res.send(noteByUser)
+  const notesByUser = notes.filter(note => note.username === user.username)
+  res.send(notesByUser)
 })
 
 module.exports = app
