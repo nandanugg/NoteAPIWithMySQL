@@ -9,8 +9,8 @@ app.delete('/note/:id', (req, res) => {
   notes.forEach(() => {
     notes.splice(0)
   });
-  updatedNotes.forEach((updatdNote) => {
-    notes.push(updatdNote)
+  updatedNotes.forEach((updatedNote) => {
+    notes.push(updatedNote)
   })
 
   res.send('Ok')
