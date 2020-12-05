@@ -12,8 +12,8 @@ app.delete('/note/:id', (req, res) => {
     notes.splice(0)
   });
   // 👇 for filtered notes, push each filtered notes to notes array
-  updatedNotes.forEach((updatdNote) => {
-    notes.push(updatdNote)
+  updatedNotes.forEach((updatedNote) => {
+    notes.push(updatedNote)
   })
   // 👇 send "Ok" to the user
   res.send('Ok')
