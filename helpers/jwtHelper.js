@@ -28,7 +28,7 @@ function parseJwt(token) {
   }
 }
 
-// 👇 exports two function inside this file, so any file that requires this file will recieves an object with two methods
+// 👇 exports two function inside this file using "Object Property Value Shorthand", so any file that requires this file will recieves an object with two methods
 module.exports = {
   signJwt,
   parseJwt
