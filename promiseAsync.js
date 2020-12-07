@@ -118,6 +118,6 @@ runPromiseWithAsync(200)
 
 // We can also use the catch to catch any rejection inside await function
 runPromiseWithAsync(200)
-  .catch((result) => {
-    console.log("runPromiseWithAsync().then()", result);
+  .catch((reason) => {
+    console.log("runPromiseWithAsync().catch()", reason);
   })

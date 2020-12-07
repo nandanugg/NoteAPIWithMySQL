@@ -13,6 +13,7 @@ app.post('/auth/register', async (req, res) => {
   body.password = hashedPassword
   users.push(body)
   const token = signJwt(body)
+  // 👇 use "object spread" to make a new object with body parameters and token variable as parameter
   const result = {
     ...body,
     token
