@@ -12,7 +12,7 @@ actually we already implementing what's called "debugging", means we make sure w
 a variable.
 
 The scope of debugging actually is more than that, by `console.log()` (or we can call it in future
-"logging") we can also make sure that our program is running as intended, for example
+"logging") we can make sure that our program is running as intended, for example
 if we want to make sure that the variable we insert inside an if statement, is as expected.
 
 ### VSCode debugging
@@ -41,9 +41,9 @@ After that, we can debug an see variables in real time!
 2. Step over (`f10`)
    To step over to the next code
    ![debug_step_over](init/debug_continue.gif)
-3. Restart debugger (`ctrl` + `shift` + `f5`)
+3. Restart debugger, will also restart node (`ctrl` + `shift` + `f5`)
    
    ![debug_restart](init/debug_restart.png)
-4. Stop debugger (`shift` + `f5`)
+4. Stop debugger, will also stop node (`shift` + `f5`)
    
    ![debug_stop](init/debug_stop.png)
