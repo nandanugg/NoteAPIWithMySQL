@@ -1,12 +1,19 @@
 const express = require('express')
-const notes = require('../../databases/notesDb')
+const db = require('../../connections/dbConnection')
+const errorMiddleware = require('../../middlewares/errorMiddleware')
 const app = express()
 
-app.patch('/note/:id', (req, res) => {
+app.patch('/note/:id', async (req, res, next) => {
   const id = req.params.id
-  const editedIndex = notes.findIndex((note) => note.id === id)
-  notes[editedIndex] = req.body
-  res.send(notes[editedIndex])
+  // 👇 update note with anything inside body
+  await db('notes').update({ id }).where(req.body)
+    .catch((error) => {
+      next(error)
+    })
+  const updatedNote = await db('notes').where({ id })
+  res.send(updatedNote)
 })
+
+app.use(errorMiddleware)
 
 module.exports = app

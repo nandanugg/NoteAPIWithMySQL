@@ -1,13 +1,16 @@
 const express = require('express')
-const notes = require('../../databases/notesDb')
+const db = require('../../connections/dbConnection')
 const app = express()
 
-app.get('/note/query', (req, res) => {
+app.get('/note/query', async (req, res) => {
   const search = req.query.search
   const user = req.user
-  const notesByUser = notes.filter(note => note.username === user.username)
-  const foundNotes = notesByUser.filter((note) => note.note.includes(search))
-  res.send(foundNotes)
+  const notesByUser = await db('notes')
+    .where({
+      userId: user.id
+    })
+    .where('note', 'like', `%${search}%`)
+  res.send(notesByUser)
 })
 
 module.exports = app

@@ -1,13 +1,15 @@
 const express = require('express')
-const notes = require('../../databases/notesDb')
+const db = require('../../connections/dbConnection')
 const app = express()
 
-app.get('/note/param/:id', (req, res) => {
+app.get('/note/param/:id', async (req, res) => {
   const id = req.params.id
   const user = req.user
-  const notesByUser = notes.filter(note => note.username === user.username)
-  const foundNotes = notesByUser.filter((note) => note.id === id)
-  res.send(foundNotes)
+  const notesByUser = await db('notes').where({
+    userId: user.id,
+    id
+  })
+  res.send(notesByUser)
 })
 
 module.exports = app

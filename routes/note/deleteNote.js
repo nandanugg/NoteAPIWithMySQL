@@ -1,19 +1,18 @@
 const express = require('express')
-const notes = require('../../databases/notesDb')
+const db = require('../../connections/dbConnection')
+const errorMiddleware = require('../../middlewares/errorMiddleware')
 const app = express()
 
-app.delete('/note/:id', (req, res) => {
+app.delete('/note/:id', async (req, res, next) => {
   const id = req.params.id
-  const updatedNotes = notes.filter((note) => note.id !== id)
-
-  notes.forEach(() => {
-    notes.splice(0)
-  });
-  updatedNotes.forEach((updatedNote) => {
-    notes.push(updatedNote)
-  })
-
+  // 👇 delete note
+  await db('users').delete(id)
+    .catch((error) => {
+      next(error)
+    })
   res.send('Ok')
 })
+
+app.use(errorMiddleware)
 
 module.exports = app

@@ -1,13 +1,13 @@
-const bcrypt = require('bcrypt')
+const { hash, compare } = require('bcrypt')
 const { SALT_ROUNDS } = process.env
 
 async function hashPassword(password) {
-  const hash = await bcrypt.hash(password, parseInt(SALT_ROUNDS))
-  return hash
+  const hashedPassword = await hash(password, parseInt(SALT_ROUNDS))
+  return hashedPassword
 }
 
-async function comparePassword(password, hash) {
-  const isValidPassword = await bcrypt.compare(password, hash)
+async function comparePassword(password, hashedPassword) {
+  const isValidPassword = await compare(password, hashedPassword)
   return isValidPassword
 }
 
