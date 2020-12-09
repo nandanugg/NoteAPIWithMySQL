@@ -11,7 +11,6 @@ app.post('/auth/login', async (req, res) => {
   const password = body.password
   const searchResult = users.find(user => (user.username == username))
   if (searchResult) {
-    // 👇 compare password inserted in request and the hashed password found by username in database
     const isPasswordMatch = await comparePassword(password, searchResult.password)
     if (isPasswordMatch) {
       const token = signJwt(searchResult)
