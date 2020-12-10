@@ -15,8 +15,16 @@ app.post('/auth/login', async (req, res) => {
   if (searchResult) {
     const isPasswordMatch = await comparePassword(password, searchResult.password)
     if (isPasswordMatch) {
-      // const token = signJwt(searchResult)
-      const token = signJwt({ ...searchResult })
+      /**
+       * Any result from knex is a "branded" object, you can see it by debugging at line 15
+       * Due to that, if we give that object to JWT, it will cause error, because JWT
+       * needs a plain object, not a branded one.
+       * We can combat this by using object spread in a object to "copy" knex result property
+       * into a new object, we can see that this concept is working if we debug at line 27
+       */
+      // const token = signJwt(searchResult) // 👈 will cause error like "expected payload to be a plain object...."
+      const plainResult = { ...searchResult } // 👈 debug this, we will see that knex result will be converted to plain object
+      const token = signJwt(plainResult) // 👈 insert a plain object into jwt
       const result = {
         ...searchResult,
         token
