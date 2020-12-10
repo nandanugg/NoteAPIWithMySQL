@@ -45,10 +45,14 @@ After that, we can debug an see variables in real time!
 2. Step over (`f10`)
    To step over to the next code
    
-      ![debug_step_over](init/debug_continue.gif)
-3. Restart debugger, will also restart node (`ctrl` + `shift` + `f5`)
+      ![debug_step_over](init/debug_step_over.gif)
+3. Continue (`f5`)
+   To continue runnung the app, will stop at the next breakpoint if availble
+   
+      ![debug_continue](init/debug_continue.gif)
+4. Restart debugger, will also restart node (`ctrl` + `shift` + `f5`)
    
       ![debug_restart](init/debug_restart.png)
-4. Stop debugger, will also stop node (`shift` + `f5`)
+5. Stop debugger, will also stop node (`shift` + `f5`)
    
       ![debug_stop](init/debug_stop.png)
