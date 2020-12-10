@@ -24,26 +24,31 @@ debugging configuration in current folder
 
 ## Steps for configuring VSCode debugging
 1. Create `launch.json` by
-   ![debug_new](init/debug_new.gif)
+      ![debug_new](init/debug_new.gif)
 2. Add a breakpoint at where do we want to pause our program
-   ![debug_breakpoint](init/debug_add_breakpoint.gif)
+      
+      ![debug_breakpoint](init/debug_add_breakpoint.gif)
 3. Start debugger
-   ![debug_start](init/debug_start.gif)
+      
+      ![debug_start](init/debug_start.gif)
 
 ----------
 
 After that, we can debug an see variables in real time!
-![debug_breakpoint](init/debug_breakpoint.gif)
+
+   ![debug_breakpoint](init/debug_breakpoint.gif)
 
 ### Debugging controls
 1. Start (`f5`)
-   ![debug_start](init/debug_start.gif)
+   
+      ![debug_start](init/debug_start.gif)
 2. Step over (`f10`)
    To step over to the next code
-   ![debug_step_over](init/debug_continue.gif)
+   
+      ![debug_step_over](init/debug_continue.gif)
 3. Restart debugger, will also restart node (`ctrl` + `shift` + `f5`)
    
-   ![debug_restart](init/debug_restart.png)
+      ![debug_restart](init/debug_restart.png)
 4. Stop debugger, will also stop node (`shift` + `f5`)
    
-   ![debug_stop](init/debug_stop.png)
+      ![debug_stop](init/debug_stop.png)
