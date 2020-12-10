@@ -16,6 +16,9 @@ Mainly, there's two types of modules in npmjs.com, there are:
 
    These module are meant to help us to build our code by adding features, like `bcrypt` or `jsonwebtoken` that we already installed, we can use it by using `require()` inside our code.
 
+#### 🤔 How do I know if a module is the CLI one or the basic?
+It usually explained in the module documentation
+
 ### Nodemon
 As we code along, we will getting tired running `npm start` over and over again, we can automate that process by using `nodemon` CLI module!
 
