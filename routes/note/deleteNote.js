@@ -5,7 +5,6 @@ const app = express()
 
 app.delete('/note/:id', async (req, res, next) => {
   const id = req.params.id
-  // 👇 delete note
   await db('users').delete(id)
     .catch((error) => {
       next(error)

@@ -13,7 +13,6 @@ app.post('/note', async (req, res, next) => {
   body.userId = user.id
   const id = nanoid()
   body.id = id
-  // 👇 insert new note
   await db('notes').insert(body)
     .catch((error) => {
       next(error)
@@ -21,15 +20,6 @@ app.post('/note', async (req, res, next) => {
   res.send(req.body)
 })
 
-/**
- * remember to handle errors when we modifying data (add, edit, delete)
- * because those operation are inputted by client, and sometimes they make
- * mistakes that can broke down the server.
- * Mistakes that can happen are like:
- * - Deleting a data that referenced with another data by foreign key
- * - Insert a new column at add or update, where we don't make the column in database
- * And many more
- */
 app.use(errorMiddleware)
 
 module.exports = app
