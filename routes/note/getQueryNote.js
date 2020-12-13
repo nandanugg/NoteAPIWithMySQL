@@ -1,16 +1,25 @@
 const express = require('express')
-const db = require('../../connections/dbConnection')
-const app = express()
+const NoteController = require('../../controllers/noteController')
+const authorize = require('../../middlewares/authorizationMiddleware')
+const errorMiddleware = require('../../middlewares/errorMiddleware')
 
-app.get('/note/query', async (req, res) => {
-  const search = req.query.search
-  const user = req.user
-  const notesByUser = await db('notes')
-    .where({
-      userId: user.id
+const app = express()
+const noteController = new NoteController()
+
+app.use(authorize)
+
+app.get('/note/query', async (req, res, next) => {
+  const { user, query } = req
+
+  const result = await noteController
+    .getNoteLike(user.id, query)
+    .catch((error) => {
+      next(error)
     })
-    .where('note', 'like', `%${search}%`)
-  res.send(notesByUser)
+  if (result)
+    res.send(result)
 })
+
+app.use(errorMiddleware)
 
 module.exports = app

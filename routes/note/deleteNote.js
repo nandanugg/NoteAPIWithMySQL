@@ -1,15 +1,23 @@
 const express = require('express')
-const db = require('../../connections/dbConnection')
+const NoteController = require('../../controllers/noteController')
+const authorize = require('../../middlewares/authorizationMiddleware')
 const errorMiddleware = require('../../middlewares/errorMiddleware')
+
 const app = express()
+const noteController = new NoteController()
+
+app.use(authorize)
 
 app.delete('/note/:id', async (req, res, next) => {
-  const id = req.params.id
-  await db('users').delete(id)
+  const { user, params } = req
+
+  const result = await noteController
+    .delete({ userId: user.id, ...params })
     .catch((error) => {
       next(error)
     })
-  res.send('Ok')
+  if (result)
+    res.send(result)
 })
 
 app.use(errorMiddleware)

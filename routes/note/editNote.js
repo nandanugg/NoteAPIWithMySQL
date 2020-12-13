@@ -1,16 +1,23 @@
 const express = require('express')
-const db = require('../../connections/dbConnection')
+const NoteController = require('../../controllers/noteController')
+const authorize = require('../../middlewares/authorizationMiddleware')
 const errorMiddleware = require('../../middlewares/errorMiddleware')
+
 const app = express()
+const noteController = new NoteController()
+
+app.use(authorize)
 
 app.patch('/note/:id', async (req, res, next) => {
-  const id = req.params.id
-  await db('notes').update(req.body).where({ id })
+  const { user, params, body } = req
+
+  const result = await noteController
+    .edit({ userId: user.id, id: params.id }, body)
     .catch((error) => {
       next(error)
     })
-  const updatedNote = await db('notes').where({ id })
-  res.send(updatedNote)
+  if (result)
+    res.send(result)
 })
 
 app.use(errorMiddleware)
