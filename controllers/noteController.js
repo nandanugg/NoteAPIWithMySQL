@@ -9,7 +9,7 @@ const baseValidatorObj = {
 }
 
 const querySchema = {
-  composedSchema: ajv.compile({
+  compiledSchema: ajv.compile({
     ...baseValidatorObj,
     properties: {
       search: { type: 'string', minLength: 1 },
@@ -18,8 +18,8 @@ const querySchema = {
     minProperties: 1
   }),
   validate(data) {
-    const isValid = this.composedSchema(data)
-    if (!isValid) throw this.composedSchema.errors
+    const isValid = this.compiledSchema(data)
+    if (!isValid) throw this.compiledSchema.errors
   }
 }
 
