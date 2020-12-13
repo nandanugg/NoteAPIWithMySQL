@@ -55,12 +55,18 @@ const querySchema = {
   }
 }
 
-
+// 👇 copied from userModel.js get()
 async function get(query) {
   querySchema.validate(query)
 
   return dbConnection(tableName).where(query)
 }
+
+/**
+ * Model first responsibility is to make way for controller to access data,
+ * so when there's a condition where controller needs specific query, then
+ * model should provide it.
+ */
 
 async function getLike(columnName, stringName, query) {
   querySchema.validate(query)
@@ -81,6 +87,7 @@ async function getLikeCount(columnName, stringName, query) {
   return countResult[0]
 }
 
+// 👇 copied from userModel.js add()
 async function add(data) {
   addSchema.validate(data)
 
@@ -90,6 +97,8 @@ async function add(data) {
   return dbConnection(tableName).where({ id: data.id }).first()
 }
 
+
+// 👇 copied from userModel.js edit()
 async function edit(query, data) {
   querySchema.validate(query)
   editSchema.validate(data)
@@ -101,14 +110,15 @@ async function edit(query, data) {
   return dbConnection(tableName).where(query)
 }
 
+// 👇 copied from userModel.js remove()
 async function remove(query) {
   querySchema.validate(query)
 
-  await dbConnection(tableName)
+  const result = await dbConnection(tableName)
     .delete()
     .where(query)
 
-  return { result: 1 }
+  return { result }
 }
 
 

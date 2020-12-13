@@ -11,7 +11,7 @@ app.post('/note', async (req, res, next) => {
   const { user, body } = req
 
   const result = await noteController
-    .add(user.id, body)
+    .add({ userId: user.id, ...body })
     .catch((error) => {
       next(error)
     })
