@@ -8,16 +8,20 @@ const baseValidatorObj = {
   additionalProperties: false
 }
 
-const querySchema = ajv.compile({
-  querySchema: {
+const querySchema = {
+  composedSchema: ajv.compile({
     ...baseValidatorObj,
     properties: {
       search: { type: 'string', minLength: 1 },
       count: { type: 'string', enum: ['true', 'false'] },
     },
     minProperties: 1
+  }),
+  validate(data) {
+    const isValid = this.composedSchema(data)
+    if (!isValid) throw this.composedSchema.errors
   }
-})
+}
 
 function add(data) {
   return model.add(data)
