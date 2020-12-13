@@ -19,6 +19,22 @@ const querySchema = ajv.compile({
   }
 })
 
+function add(data) {
+  return model.add(data)
+}
+
+function get(query) {
+  return model.get(query)
+}
+
+function edit(query, data) {
+  return model.edit(query, data)
+}
+
+function remove(query) {
+  return model.remove(query)
+}
+
 async function getNoteLike(userId, query) {
   querySchema.validate(query)
   if (query.hasOwnProperty('count') && query.count == 'true') {
@@ -29,5 +45,9 @@ async function getNoteLike(userId, query) {
 }
 
 module.exports = {
-  getNoteLike
+  add,
+  get,
+  getNoteLike,
+  edit,
+  remove
 }
