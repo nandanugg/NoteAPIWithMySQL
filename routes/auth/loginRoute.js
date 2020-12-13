@@ -1,9 +1,8 @@
 const express = require('express')
-const UserController = require('../../controllers/userController')
+const userController = require('../../controllers/userController')
 const errorMiddleware = require('../../middlewares/errorMiddleware')
 
 const app = express.Router()
-const userController = new UserController()
 
 app.post('/auth/login', async (req, res, next) => {
   const { body } = req

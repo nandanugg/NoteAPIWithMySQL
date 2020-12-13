@@ -1,10 +1,9 @@
 const express = require('express')
-const NoteController = require('../../controllers/noteController')
+const noteController = require('../../controllers/noteController')
 const authorize = require('../../middlewares/authorizationMiddleware')
 const errorMiddleware = require('../../middlewares/errorMiddleware')
 
 const app = express()
-const noteController = new NoteController()
 
 app.use(authorize)
 

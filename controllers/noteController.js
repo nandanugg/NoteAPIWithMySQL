@@ -1,32 +1,33 @@
-const NoteModel = require('../model/noteModel')
-const BaseController = require('./baseController')
+const Ajv = require('ajv')
+const model = require('../model/noteModel')
 
-class NoteController extends BaseController {
-  constructor() {
-    const baseValidatorObj = {
-      type: 'object',
-      additionalProperties: false
-    }
-    super(NoteModel, {
-      querySchema: {
-        ...baseValidatorObj,
-        properties: {
-          search: { type: 'string', minLength: 1 },
-          count: { type: 'string', enum: ['true', 'false'] },
-        },
-        minProperties: 1
-      }
-    })
+const ajv = new Ajv()
+
+const baseValidatorObj = {
+  type: 'object',
+  additionalProperties: false
+}
+
+const querySchema = ajv.compile({
+  querySchema: {
+    ...baseValidatorObj,
+    properties: {
+      search: { type: 'string', minLength: 1 },
+      count: { type: 'string', enum: ['true', 'false'] },
+    },
+    minProperties: 1
   }
+})
 
-  async getNoteLike(userId, query) {
-    this.querySchema.validate(query)
-    if (query.hasOwnProperty('count') && query.count == 'true') {
-      return this.model.getLikeCount('note', query.search, { userId })
-    } else {
-      return this.model.getLike('note', query.search, { userId })
-    }
+async function getNoteLike(userId, query) {
+  querySchema.validate(query)
+  if (query.hasOwnProperty('count') && query.count == 'true') {
+    return model.getLikeCount('note', query.search, { userId })
+  } else {
+    return model.getLike('note', query.search, { userId })
   }
 }
 
-module.exports = NoteController
+module.exports = {
+  getNoteLike
+}
