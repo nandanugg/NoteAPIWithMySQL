@@ -23,6 +23,7 @@ class BaseModel {
      * the schemas parameter should be inserted with rules defined below
      * 👇
      */
+
     const isSchemaValid = this.ajv.validate({
       type: 'object',
       properties: {

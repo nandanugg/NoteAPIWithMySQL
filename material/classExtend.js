@@ -18,6 +18,7 @@ class Person {
 
 class Admin extends Person { // 👈 extends Person, means this class is using Person's object structure as basis
   constructor(fullName, username, email, storeName) {
+
     /**
      * Remember calling class like new Admin()?
      * Due to this class is extending Person class
@@ -25,6 +26,7 @@ class Admin extends Person { // 👈 extends Person, means this class is using P
      * But by extending, we can write new Person() by just adding super()
      * at constructor
      */
+
     super(fullName, username, email) // 👈 same as new Person(), and the value filled with Admin class parameter
     this.storeName = storeName // 👈 add property exclusive for this class only
   }
