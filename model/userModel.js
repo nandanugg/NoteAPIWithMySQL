@@ -1,5 +1,17 @@
 const BaseModel = require('./baseModel');
 
+/**
+ * By using the power of OOP, we can make a class that inhert its
+ * properties and methods to the class who extends it, this concept
+ * is called "OOP Inheritance".
+ *
+ * By making a base model, we can create a model with basic
+ * methods and functions that can inhert to the class who extends it
+ * 
+ * As we can see, the UserModel is extends the BaseModel, means the
+ * BaseModel is inherting it's parameter and methods to UserModel
+ */
+
 class UserModel extends BaseModel {
   constructor() {
     const baseValidatorObj = {

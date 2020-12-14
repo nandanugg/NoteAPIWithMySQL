@@ -25,7 +25,7 @@ class UserController extends BaseController {
    * Q: Can we just declare this method outside of this class as function,
    * and make class method use the function?
    * A: Yes, but it will be a big hassle if we want to change something,
-   * because we will need to constantly scroll outside the class to make
+   * because we will need to constantly scroll outside & inside the class to make
    * changes.
    */
 

@@ -3,12 +3,11 @@ const { nanoid } = require("nanoid");
 const Ajv = require('ajv')
 
 /**
- * By using the power of OOP, we can make a class that inhert its
- * properties and methods to the class who extends it, this concept
- * is called "OOP Inheritance".
- *
- * By making a base model, we can create a model with basic
- * methods and functions that can inhert to the class who extends it
+ * As we can see that BaseModel is extended by this NoteModel
+ * and UserModel class because we designed BaseModel
+ * to can be used in many different model, that concept is
+ * called "OOP Polymorphism", means that BaseModel class can
+ * "morph" to another class by inserting a different parameter
  */
 
 class BaseModel {

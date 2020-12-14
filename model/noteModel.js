@@ -6,6 +6,7 @@ class NoteModel extends BaseModel {
       type: 'object',
       additionalProperties: false
     }
+
     super('notes', {
       addSchema: {
         ...baseValidatorObj,
