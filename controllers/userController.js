@@ -51,7 +51,7 @@ class UserController extends BaseController {
     }
     user = await this.model.add(user)
 
-    return this.prepareReturn(user)
+    return this._prepareReturn(user)
   }
 
   async login(body) {
@@ -64,7 +64,7 @@ class UserController extends BaseController {
     const isPasswordMatch = await comparePassword(password, stringHashPassword)
     if (!isPasswordMatch) throw 'Password not match'
 
-    return this.prepareReturn(user)
+    return this._prepareReturn(user)
   }
 }
 
