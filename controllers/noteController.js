@@ -60,10 +60,12 @@ function remove(query) {
 // 👇 GET note query handler
 async function getNoteLike(userId, query) {
   querySchema.validate(query)
+
   /**
    * As we can see below, controller manages what model function shoud it do
    * based on query inserted by client
    */
+
   if (query.hasOwnProperty('count') && query.count == 'true') {
     return model.getLikeCount('note', query.search, { userId })
   } else {

@@ -78,9 +78,7 @@ const editSchema = {
 /**
  * To fulfill the first resposibility, we will create functions that act as
  * bridges to make controller fetch data to database
- */
-
-/**
+ *
  * There will be a situation when model queries are unique from others, it's better to
  * create a new function rather than modify existing function to handle many situation,
  * it will be harder and also longer to made
