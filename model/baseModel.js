@@ -52,8 +52,8 @@ class BaseModel {
         compiledSchema: this.ajv.compile(schema),
         // 👇 and a validate method to validate to validate input
         validate(data) {
-          const isValid = this[key].compiledSchema(data)
-          if (!isValid) throw this[key].compiledSchema.errors
+          const isValid = this.compiledSchema(data)
+          if (!isValid) throw this.compiledSchema.errors
         }
       }
     }

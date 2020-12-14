@@ -58,7 +58,7 @@ class UserModel extends BaseModel {
 
   // 👇 below are the same functions as previous userModel.js, but now they're class methods
   async isExists(query) {
-    this.querySchema(query)
+    this.querySchema.validate(query)
 
     const countResult = await this.db(this.tableName)
       .count({ count: "*" })
@@ -67,7 +67,7 @@ class UserModel extends BaseModel {
   }
 
   getOne(query) {
-    this.querySchema(query)
+    this.querySchema.validate(query)
 
     return this.db(this.tableName)
       .select()

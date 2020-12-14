@@ -21,8 +21,8 @@ class BaseController {
       this[key] = {
         compiledSchema: this.ajv.compile(schema),
         validate(data) {
-          const isValid = this[key].compiledSchema(data)
-          if (!isValid) throw this[key].compiledSchema.errors
+          const isValid = this.compiledSchema(data)
+          if (!isValid) throw this.compiledSchema.errors
         }
       }
     }
