@@ -5,3 +5,5 @@
 3. Do a research about `object destructuring in javascript` and write the results in a new file called `objectDestructuring.md` 
 4. Do a research about `Object Property Value Shorthand in javascript` and write the results in a new file called `objectShorthand.md` 
 5. Do a research about `benefits of environment variables` and write the results in a new file called `environmentVariables.md` 
+
+Do above tasks inside a folder called `researches`

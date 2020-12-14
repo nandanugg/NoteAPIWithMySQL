@@ -9,7 +9,9 @@ const { parseJwt } = require("../helpers/jwtHelper")
  * @param {Function} next will be filled with anonymous function by express, to make way for us
  * to tell that this middleware is done and ready to be handled to route that using this middleware
  */
+
 function authorize(req, res, next) {
+
   /**
    * token that recieved while register / login should be placed on authorization header by client
    * there are many types of token, the one that commonly used is "bearer token" that we use right now
@@ -19,6 +21,7 @@ function authorize(req, res, next) {
    * 3. not expired
    * A bearer token format will look like "Bearer <token>"
    */
+
   // 👇 verify that the token is inserted
   const authorization = req.headers.authorization
   if (!authorization) {
