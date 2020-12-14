@@ -19,7 +19,7 @@ class BaseController {
     for (const key in schemas) {
       const schema = schemas[key];
       this[key] = {
-        compiledSchema = this.ajv.compile(schema),
+        compiledSchema: this.ajv.compile(schema),
         validate(data) {
           const isValid = this[key].compiledSchema(data)
           if (!isValid) throw this[key].compiledSchema.errors

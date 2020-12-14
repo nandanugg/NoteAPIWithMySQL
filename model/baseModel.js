@@ -49,7 +49,7 @@ class BaseModel {
       // 👇 create a property with name of looped property name, and fill it with
       this[key] = {
         // 👇 compiled schema from schemas property
-        compiledSchema = this.ajv.compile(schema),
+        compiledSchema: this.ajv.compile(schema),
         // 👇 and a validate method to validate to validate input
         validate(data) {
           const isValid = this[key].compiledSchema(data)
