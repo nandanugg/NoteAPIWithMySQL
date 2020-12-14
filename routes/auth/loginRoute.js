@@ -12,6 +12,7 @@ app.post('/auth/login', async (req, res) => {
   const searchResult = await db('users').where({
     username: username
   }).first()
+  // TODO add binary conversion to string
   if (searchResult) {
     const isPasswordMatch = await comparePassword(password, searchResult.password)
     if (isPasswordMatch) {
