@@ -11,3 +11,5 @@ This project will serve as code example on how to create a basic note API, from 
 
 ### Task
 - [Branch task](task.md)
+
+### Next, [MVP (Model, View & Controller)](https://github.com/nandanugg/BasicNoteAPI/tree/mvp-feature)
