@@ -12,7 +12,7 @@ app.patch('/note/:id', async (req, res, next) => {
   const { user, params, body } = req
 
   const result = await noteController
-    .edit({ userId: user.id, id: params.id }, body)
+    .edit({ userId: user.id, id: params.id }, body) // 👈 this is using baseController methods!
     .catch((error) => {
       next(error)
     })

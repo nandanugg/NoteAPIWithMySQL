@@ -7,7 +7,16 @@ class UserModel extends BaseModel {
       additionalProperties: false
     }
 
+    /**
+     * By using OOP, because class are designed to be strict about
+     * how it should be used, we will get a benefit like human error prone
+     * so developer will make less mistake, but with a cons like longer 
+     * implementation, because to make a class "strict", means we need
+     * to code a lot, which also means longer implementation.
+     */
+
     super('users', {
+      // 👇 insert the schemas needed for the extended class
       addSchema: {
         ...baseValidatorObj,
         properties: {
@@ -34,10 +43,11 @@ class UserModel extends BaseModel {
 
   }
 
+
+  // 👇 below are the same functions as previous userModel.js, but now they're class methods
   async isExists(query) {
     this.querySchema(query)
 
-    // minimize data transfers between node and database
     const countResult = await this.db(this.tableName)
       .count({ count: "*" })
       .where(query)

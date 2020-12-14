@@ -12,7 +12,7 @@ app.get('/note', async (req, res, next) => {
   const { user } = req
 
   const result = await noteController
-    .get({ userId: user.id })
+    .get({ userId: user.id }) // 👈 this is using baseController methods!
     .catch((error) => {
       next(error)
     })

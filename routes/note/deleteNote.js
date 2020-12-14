@@ -12,7 +12,7 @@ app.delete('/note/:id', async (req, res, next) => {
   const { user, params } = req
 
   const result = await noteController
-    .delete({ userId: user.id, ...params })
+    .delete({ userId: user.id, ...params }) // 👈 this is using baseController methods!
     .catch((error) => {
       next(error)
     })

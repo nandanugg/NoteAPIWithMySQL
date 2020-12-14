@@ -12,7 +12,7 @@ app.get('/note/query', async (req, res, next) => {
   const { user, query } = req
 
   const result = await noteController
-    .getNoteLike(user.id, query)
+    .getNoteLike(user.id, query) // 👈 this is using noteController methods
     .catch((error) => {
       next(error)
     })

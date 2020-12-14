@@ -35,6 +35,18 @@ class NoteModel extends BaseModel {
 
   }
 
+  /**
+   * The power of OOP inheritance will be shown here, as 
+   * we can see that previously we have basic function like add,
+   * get, edit & remove function, and now they're gone, because
+   * those function already been implemented in baseModel.
+   * 
+   * By doing that, we can create a model that only focused
+   * on custom queries like methods below, and also speed up
+   * the development for creating model that requires basic
+   * methods
+   */
+
   getLike(columnName, stringName, query) {
     this.querySchema.validate(query)
 
