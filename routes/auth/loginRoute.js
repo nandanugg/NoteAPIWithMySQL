@@ -12,8 +12,14 @@ app.post('/auth/login', async (req, res) => {
   const searchResult = await db('users').where({
     username: username
   }).first()
-  // TODO add binary conversion to string
   if (searchResult) {
+
+    /**
+     * due to a password is stored as a binary, we need to convert it to string first
+     * before comparing it with bcrypt
+     */
+
+    searchResult.password = searchResult.password.toString() // 👈 convert binary to string
     const isPasswordMatch = await comparePassword(password, searchResult.password)
     if (isPasswordMatch) {
 
