@@ -8,21 +8,21 @@ const ajv = new Ajv()
 
 // 👇 compile a schema first before validating any value
 const compiledSchema = ajv.compile({
-  type: 'object', // 👈 https://ajv.js.org/keywords.html#type
-  properties: { // 👈 https://ajv.js.org/keywords.html#properties
+  type: 'object', // 👈 https://ajv.js.org/json-schema.html#type
+  properties: { // 👈 https://ajv.js.org/json-schema.html#properties
     name: { type: 'string' },
     age: { type: 'number' },
     isMarried: { type: 'boolean' },
     pets: {
       type: 'array',
-      items: { // 👈 https://ajv.js.org/keywords.html#items
+      items: { // 👈 https://ajv.js.org/json-schema.html#items
         type: 'string'
       },
-      minItems: 1 // 👈 https://ajv.js.org/keywords.html#maxitems--minitems
+      minItems: 1 // 👈 https://ajv.js.org/json-schema.html#maxitems--minitems
     }
   },
-  required: ['name', 'age', 'isMarried', 'pets'], // 👈 https://ajv.js.org/keywords.html#required
-  additionalProperties: false // 👈 https://ajv.js.org/keywords.html#additionalproperties
+  required: ['name', 'age', 'isMarried', 'pets'], // 👈 https://ajv.js.org/json-schema.html#required
+  additionalProperties: false // 👈 https://ajv.js.org/json-schema.html#additionalproperties
 })
 
 async function run() {
