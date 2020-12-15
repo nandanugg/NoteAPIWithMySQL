@@ -60,8 +60,8 @@ class UserController extends BaseController {
     const user = await this.model.getOne({ username })
     if (!user) throw 'User not found'
 
-    const stringHashPassword = user.password.toString()
-    const isPasswordMatch = await comparePassword(password, stringHashPassword)
+    user.password = user.password.toString()
+    const isPasswordMatch = await comparePassword(password, user.password)
     if (!isPasswordMatch) throw 'Password not match'
 
     return this._prepareReturn(user)
